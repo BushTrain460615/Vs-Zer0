@@ -18,6 +18,5 @@ export/*
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-assets/.DS_Store
-assets/preload/.DS_Store
-assets/preload/images/.DS_Store
+art/.DS_Store
+.DS_Store
