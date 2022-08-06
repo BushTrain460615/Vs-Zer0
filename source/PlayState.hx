@@ -1314,9 +1314,6 @@ class PlayState extends MusicBeatState
 				case 'ugh' | 'guns' | 'stress':
 					tankIntro();
 
-				case 'test':
-                    playvideo(Broke.mp4);
-
 				default:
 					startCountdown();
 			}
