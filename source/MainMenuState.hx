@@ -30,6 +30,7 @@ class MainMenuState extends MusicBeatState
 	public static var curSelected:Int = 0;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
+	var logo:FlxSprite;
 	private var camGame:FlxCamera;
 	private var camAchievement:FlxCamera;
 	
@@ -102,9 +103,6 @@ class MainMenuState extends MusicBeatState
 		add(menuItems);
 
 		var scale:Float = 0.7;
-		/*if(optionShit.length > 6) {
-			scale = 6 / optionShit.length;
-		}*/
 
 		for (i in 0...optionShit.length)
 		{
@@ -119,11 +117,10 @@ class MainMenuState extends MusicBeatState
 			menuItem.ID = i;
 			//menuItem.screenCenter(X);
 			menuItems.add(menuItem);
-			var scr:Float = (optionShit.length - 4) * 0.135;
-			if(optionShit.length < 6) scr = 0;
+			var scr:Float = 0.135;
 			menuItem.scrollFactor.set(0, scr);
 			menuItem.antialiasing = ClientPrefs.globalAntialiasing;
-		    menuItem.setGraphicSize(Std.int(menuItem.width * 0.7));
+		        menuItem.setGraphicSize(Std.int(menuItem.width * 0.7));
 			menuItem.updateHitbox();
 		}
 
@@ -137,6 +134,15 @@ class MainMenuState extends MusicBeatState
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
+		
+		logo = new FlxSprite(420, 30).loadGraphic(Paths.image('logoBumpin'));//Thats the logo that appears in the menu
+		logo.frames = Paths.getSparrowAtlas('logoBumpin');//here put the name of the xml
+		logo.animation.addByPrefix('idleR', 'logo bumpin', 24, true);//on 'idle normal' change it to your xml one
+		logo.animation.play('idleR');//you can rename the anim however you want to
+		logo.scrollFactor.set();
+		logo.scale.set(0.8, 0.8);
+		logo.antialiasing = ClientPrefs.globalAntialiasing;
+		add(logo);
 
 		// NG.core.calls.event.logEvent('swag').send();
 
